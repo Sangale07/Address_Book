@@ -120,6 +120,12 @@ public class AddressBook {
         return contactList.stream()
                 .collect(Collectors.groupingBy(ContactPerson::getState));
     }
+
+    public long countByCity(String city) {
+        return contactList.stream()
+                .filter(contact -> contact.getCity().equalsIgnoreCase(city))
+                .count();
+    }
 }
 
 
