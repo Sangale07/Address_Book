@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -110,9 +111,18 @@ public class AddressBook {
                     .collect(Collectors.toList());
             result.forEach(System.out::println);
         }
+    public Map<String, List<ContactPerson>> viewByCity() {
+        return contactList.stream()
+                .collect(Collectors.groupingBy(ContactPerson::getCity));
     }
 
-
+    public Map<String, List<ContactPerson>> viewByState() {
+        return contactList.stream()
+                .collect(Collectors.groupingBy(ContactPerson::getState));
+    }
 }
+
+
+
 
 
