@@ -13,9 +13,22 @@ public class AddressBook {
         this.contactList = new ArrayList<>();
     }
 
+//    public void addContact(ContactPerson contact) {
+//        if (contactList.contains(contact)) {
+//            System.out.println("Contact already exists!");
+//        } else {
+//            contactList.add(contact);
+//            System.out.println("Contact added successfully.");
+//        }
+//    }
+
+//    Add Contact method using Stream
+
     public void addContact(ContactPerson contact) {
-        if (contactList.contains(contact)) {
-            System.out.println("Contact already exists!");
+        boolean isDuplicate = contactList.stream().anyMatch(existingContact -> existingContact.equals(contact));
+
+        if (isDuplicate) {
+            System.out.println("Duplicate contact not allowed.");
         } else {
             contactList.add(contact);
             System.out.println("Contact added successfully.");
@@ -89,6 +102,7 @@ public class AddressBook {
             choice = scanner.nextLine();
         } while (choice.equalsIgnoreCase("yes"));
     }
+
 }
 
 
