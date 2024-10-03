@@ -54,6 +54,11 @@ public class AddressBook {
             }
             System.out.println("Contact not found.");
         }
+
+    public void deleteContact(String firstName, String lastName) {
+        contactList.removeIf(contact -> contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName));
+        System.out.println("Contact deleted successfully.");
+    }
 }
 
 
