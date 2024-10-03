@@ -103,6 +103,15 @@ public class AddressBook {
         } while (choice.equalsIgnoreCase("yes"));
     }
 
+        public void searchByCityOrState(String location) {
+            List<ContactPerson> result = contactList.stream()
+                    .filter(contact -> contact.getCity().equalsIgnoreCase(location) || contact.getState().equalsIgnoreCase(location))
+                    .collect(Collectors.toList());
+            result.forEach(System.out::println);
+        }
+    }
+
+
 }
 
 
